@@ -1,0 +1,47 @@
+
+// @mixin heading($color: blue, $border-radius: true) {
+    //     text-transform: uppercase;
+    //     font-size: 2.4rem;
+    //     color: $color;
+    //     letter-spacing: 10px;
+    //     background-color: black;             prueba de mixin
+    
+    //     @if $border-radius {
+        //         border-radius: 1rem;
+        //     }
+        // }
+        
+@use 'variables' as v;
+        
+
+@mixin phone {
+    @media (min-width: v.$phone) {
+        // Estilos aqui
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+
+
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+@mixin desktopXl {
+    @media (min-width: v.$desktopXL) {
+        @content;
+    }
+}
+
+@mixin grid ($columnas, $espaciado) {
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    gap: $espaciado;
+}
